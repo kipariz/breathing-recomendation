@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="results">
+  <div class="hardcrode" style="padding-bottom: 1em;">
+    Значення параметрів: <div style='font-size: large;'><b>BMI:</b> {{ input_values['BMI'] }}</div> {{ input_values['bmi_result'] }}
+    
+  </div>
+  <div class="hardcrode" style="padding-bottom: 1em;">
+    <div style='font-size: large;'><b>SF-36:</b> 85</div> Ви маєте добрий рівень здоров'я.
+    
+    Враховуючи стан вашого здоров'я, рекомендуємо звичайний комплекс вправ:
+  </div>
+
+  
+    <div class="carousel">
+      
+      <input class="carousel-locator" id="slide-1" type="radio" name="carousel-radio" hidden="" checked="">
+      <input class="carousel-locator" id="slide-2" type="radio" name="carousel-radio" hidden="">
+      <input class="carousel-locator" id="slide-3" type="radio" name="carousel-radio" hidden="">
+      <input class="carousel-locator" id="slide-4" type="radio" name="carousel-radio" hidden="">
+      
+      <!-- carousel container -->
+      <div class="carousel-container"> 
+        
+        <figure class="carousel-item">
+          <label class="item-prev btn btn-action btn-lg" for="slide-4"><i class="icon icon-arrow-left"></i></label>
+          <label class="item-next btn btn-action btn-lg" for="slide-2"><i class="icon icon-arrow-right"></i></label>
+          <img class="img-responsive rounded" src="/static/pic1.jpg" alt="macOS Yosemite Wallpaper">
+        </figure>
+        <figure class="carousel-item">
+          <label class="item-prev btn btn-action btn-lg" for="slide-1"><i class="icon icon-arrow-left"></i></label>
+          <label class="item-next btn btn-action btn-lg" for="slide-3"><i class="icon icon-arrow-right"></i></label>
+          <img class="img-responsive rounded" src="/static/pic2.jpg" alt="macOS Yosemite Wallpaper">
+        </figure>
+        <figure class="carousel-item">
+          <label class="item-prev btn btn-action btn-lg" for="slide-2"><i class="icon icon-arrow-left"></i></label>
+          <label class="item-next btn btn-action btn-lg" for="slide-4"><i class="icon icon-arrow-right"></i></label>
+          <img class="img-responsive rounded" src="/static/pic3.jpg" alt="macOS El Capitan Wallpaper">
+          
+        </figure>
+        <figure class="carousel-item">
+          <label class="item-prev btn btn-action btn-lg" for="slide-3"><i class="icon icon-arrow-left"></i></label>
+          <label class="item-next btn btn-action btn-lg" for="slide-1"><i class="icon icon-arrow-right"></i></label>
+          <img class="img-responsive rounded" src="static/pic4.jpg" alt="macOS El Capitan Wallpaper">
+        </figure>
+      </div>
+      <div class="carousel-nav">
+        <label class="nav-item text-hide c-hand" for="slide-1">1</label>
+        <label class="nav-item text-hide c-hand" for="slide-2">2</label>
+        <label class="nav-item text-hide c-hand" for="slide-3">3</label>
+        <label class="nav-item text-hide c-hand" for="slide-4">4</label>
+      </div>
+    </div>
+
+    <div class="hardcrode" style="padding-top: 1em;">
+      Результат оцінки вашого здоров'я 
+      <div style='font-size: large;'><b>Експертною системою:</b></div>
+
+      Не знайдено жодної хвороби, яка б відповідала вашим симптомам
+      Найбільш вірогідне захворювання, яке у вас є, - синусит
+      
+      <i>Будь-ласка зверніться до лікаря якщо будете почиватись зле!</i>
+    
+    </div>
+
+</div>
+{% endblock %}

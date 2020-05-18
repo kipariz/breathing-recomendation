@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk-UA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="./static/style.css">
+    <link rel="icon" href="static/logo.png">
+    {% block head %}{% endblock %}
+    
+    <title>Диханка</title>
+</head>
+
+<body>
+  
+    <header class="navbar" style="font-size: 19px; padding: 0.5em; border-radius:50px;">
+        <section class="navbar-section" style=" padding: 1em;">
+          <a class="label label-rounded label-primary" href="/about">Про проект</a>
+        </section>
+        <section class="navbar-center">
+              
+              <img id="main_imd" src="static/breath.png" alt="Logo" style="
+                  height: 70px;
+                  width: 160px;
+                  max-width: 80%;
+                  max-height: 80%;"/>
+                
+        </section>
+        <section class="navbar-section" style=" padding: 1em;">
+          <a class="label label-rounded label-primary" href="/">Пройти тест</a>
+        </section>
+    </header>
+
+        <div class="container centered" id="content">
+          <!-- <h1 class="text-center" id="main text"><i>Диханка</i></h1> -->
+          <div class="container grid-sm">
+          <!-- <p class="text-center text-large explanation"></p> -->
+          {% block content %}{% endblock %}
+          </div>
+        </div>
+
+      
+        <footer>
+          <div class="container grid-sm">
+        
+          {% block footer %}{% endblock %}
+    
+          
+            <em id="down_text">
+              
+              * Будь ласка зауважте, що цей сайт призначений виключно для інформаційних цілей 
+              і не є медичною консультацією. Для подальшої консультації зверніться до лікаря.
+              
+            </em>
+          
+          </div>
+        </footer>
+    
+</body>
+</html>

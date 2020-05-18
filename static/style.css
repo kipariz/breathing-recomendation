@@ -1,0 +1,33 @@
+
+header{
+    margin: 20px;
+    background-color: rgb(251, 171, 126, 0.5);
+    border-radius: 25px;
+}
+
+
+footer{
+    margin-top: 5%; margin-left: 10%; margin-right: 10%;
+    
+}
+
+#down_text{
+  background: rgb(34,193,195);
+}
+
+/* body{
+    background: rgb(34,193,195);
+    background: linear-gradient(10deg, rgba(34,193,195,1) 12%, rgba(249,192,69,0.8575805322128851) 79%);
+} */
+
+/* img {
+    max-width: 70%;
+    max-height: 70%;
+} */
+
+
+#content{
+    padding: 20px;
+}
+
+

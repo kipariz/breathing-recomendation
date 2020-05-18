@@ -1,0 +1,340 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<form method="post" action="./process_form">
+  <p> Останнім часом багато людей гине від хронічних хвороб, зростає смертність та ускладнення від інфекційних. <b>Мета проекту - допомогти розвинути дихальну систему.</b> Загортований організм зможе легше перенести хвороби, тож <b>будьмо здорові!</b>
+  </p>
+   
+    <!-- Оцінка параметрів пов'язаних з органами дихання -->
+   
+
+  <div class="columns">
+    <div class="column col-6">
+      <p>В першу чергу перевіримо <b>параметри, пов'язані з хворобами органів дихання.</b><br> Оберіть один або декілька
+        параметрів, якщо вони стосуються вас. Якщо ні - перейдіть до наступних запитань.</p>
+    </div>
+    <div class="column col-6">
+      <div class="form-group">
+        <label class="form-checkbox">
+          <input type="checkbox" name="air"><i class="form-icon"></i> Кашель
+        </label>
+        <label class="form-checkbox">
+          <input type="checkbox" name="air"><i class="form-icon"></i> Мокрота
+        </label>
+        <label class="form-checkbox">
+          <input type="checkbox" name="air"><i class="form-icon"></i> Задишка
+        </label>
+        <label class="form-checkbox">
+          <input type="checkbox" name="air"><i class="form-icon"></i> Болі в грудній клітці
+        </label>
+      </div>
+    </div>
+
+    <!-- Оцінка загальних параметрів + bmi -->
+    <!-- input -->
+    <p>Наступний крок - оцінка параметрів, які безпосередньо не впливають на дихальні органи, але можуть бути
+      індикаторами загального стану організму.</p>
+    <!-- form input control -->
+    <div class="form-group">
+      <div class="columns">
+        <div class="column col-6">
+          <b>
+          <label class="form-label" for="input-example-1">Температура</label>
+          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть вашу температуру" name="temp">
+
+          <label class="form-label" for="input-example-1">Пульс</label>
+          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш пульс" name="pulse">
+
+          <label class="form-label" for="input-example-1">Вага</label>
+          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть вашу вагу" value="60" min="0" , max="500" name="weight" required  >
+          
+        </div>
+
+        <div class="column col-6">
+          <label class="form-label" for="input-example-1">Тиск систолічний</label>
+          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш систолічний тиск"
+            name="bp_systolic">
+
+          <label class="form-label" for="input-example-1">Тиск діастолічний</label>
+          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш діастолічний тиск"
+            name="bp_diastolic">
+
+
+          <label class="form-label" for="input-example-1">Зріст (см)</label>
+          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш зріст" value="160" min="0" , max="300" name="height" required >
+          </b>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SF-36 -->
+    <!-- физическое функционирование (Physical Functioning — PF); -->
+
+    <br><p>Наступні пункти стосуються діяльності, яку ви можете робити протягом звичайного дня. <b>Чи обмежує вас зараз ваше
+      здоров'я у цих заходах?</b> Якщо так, на скільки?</p>
+    
+    <div class="form-group">
+      <label class="form-label"><b>Інтенсивні заняття</b>, такі як біг, підйом важких предметів, участь у енергійних видах спорту</label>
+      
+      <b>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct1" value="1">
+        <i class="form-icon"></i> Так, сильно обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct1" value="2" checked>
+        <i class="form-icon"></i> Так, трохи обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct1" value="3">
+        <i class="form-icon"></i> Ні, зовсім не обмежує
+      </label>
+      </b>
+
+    </div>
+
+    <div class="form-group">
+      <label class="form-label"><b>Помірні заняття</b>, такі як переміщення столу, гра в боулінг.</label>
+      
+      <b>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct2"  value="1">
+        <i class="form-icon"></i> Так, сильно обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct2"  value="2">
+        <i class="form-icon"></i> Так, трохи обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct2"  value="3" checked>
+        <i class="form-icon"></i> Ні, зовсім не обмежує
+      </label>
+      </b>
+
+    </div>
+
+    <div class="form-group">
+      <label class="form-label"><b>Перенесення продуктів</b></label>
+      
+      <b>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct3" value="1" checked>
+        <i class="form-icon"></i> Так, сильно обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct3" value="2">
+        <i class="form-icon"></i> Так, трохи обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct3" value="3">
+        <i class="form-icon"></i> Ні, зовсім не обмежує
+      </label>
+      </b>
+
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Підйом на <b>кілька поверхів</b></label>
+      
+      <b>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct4" >
+        <i class="form-icon"></i> Так, сильно обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct4" >
+        <i class="form-icon"></i> Так, трохи обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct4">
+        <i class="form-icon"></i> Ні, зовсім не обмежує
+      </label>
+      </b>
+
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Підйом на <b>один поверх.</b></label>
+      
+      <b>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct5" >
+        <i class="form-icon"></i> Так, сильно обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct5" >
+        <i class="form-icon"></i> Так, трохи обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct5">
+        <i class="form-icon"></i> Ні, зовсім не обмежує
+      </label>
+      </b>
+
+    </div>
+
+    <div class="form-group">
+      <label class="form-label"><b>Нагинання, присідання</b></label>
+      
+      <b>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct6" >
+        <i class="form-icon"></i> Так, сильно обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct6" >
+        <i class="form-icon"></i> Так, трохи обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct6">
+        <i class="form-icon"></i> Ні, зовсім не обмежує
+      </label>
+      </b>
+
+    </div>
+
+    <div class="form-group">
+      <label class="form-label"><b></b>Ходьба на відстань<br> більше ніж 2 км</label>
+      
+      <b>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct7" >
+        <i class="form-icon"></i> Так, сильно обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct7" >
+        <i class="form-icon"></i> Так, трохи обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct7">
+        <i class="form-icon"></i> Ні, зовсім не обмежує
+      </label>
+      </b>
+
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Ходьба на відстань<br> декількох кварталів</label>
+      
+      <b>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct8" >
+        <i class="form-icon"></i> Так, сильно обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct8" >
+        <i class="form-icon"></i> Так, трохи обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct8">
+        <i class="form-icon"></i> Ні, зовсім не обмежує
+      </label>
+      </b>
+
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Ходьба на відстань<br> одного кварталу</label>
+      
+      <b>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct9" >
+        <i class="form-icon"></i> Так, сильно обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct9" >
+        <i class="form-icon"></i> Так, трохи обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct9">
+        <i class="form-icon"></i> Ні, зовсім не обмежує
+      </label>
+      </b>
+
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Купання чи <br>одягання себе</label>
+      
+      <b>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct10" >
+        <i class="form-icon"></i> Так, сильно обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct10" >
+        <i class="form-icon"></i> Так, трохи обмежує
+      </label>
+      <label class="form-radio">
+        <input type="radio" name="phys_funct10">
+        <i class="form-icon"></i> Ні, зовсім не обмежує
+      </label>
+      </b>
+
+    </div>
+
+    <!-- ролевое функционирование, обусловленное эмоциональным состоянием (Role-Emotional — RE);  -->
+
+    <p>Протягом останніх 4 тижнів у вас були якісь наступні проблеми з роботою чи іншими регулярними щоденними діями
+      внаслідок будь-яких емоційних проблем (наприклад, почуття пригніченості чи тривоги)?
+      <br><i>(Можна обрати декілька варіантів)</i>
+    </p>
+
+    <div class="form-group">
+      
+          <label class="form-checkbox ">
+            <input type="checkbox" value="1" name="emotional" ><i class="form-icon"></i> Скорочення кількості часу, який ви витратили
+            на роботу чи іншу діяльність
+          </label>
+
+          <label class="form-checkbox ">
+            <input type="checkbox" value="2" name="emotional"  checked><i class="form-icon"></i> Виконано менше, ніж хотілося б
+          </label>
+
+          <label class="form-checkbox ">
+            <input type="checkbox" value="3" name="emotional" ><i class="form-icon"></i> Не робили роботу чи іншу діяльність так
+            ретельно, як зазвичай
+          </label>
+
+      </label>
+
+    </div>
+
+    <!-- Інтенсивність болі (Bodily pain — BP); -->
+    <p>Оцініть свій рівень болі у тілі за останні 4 тижні:</p>
+
+    <div class="columns" style="margin-left: 1em;">
+      <div class="column col-3">
+        <p>Не було болі у тілі</p>
+      </div>
+      <div class="column col-6" style="margin-top: 1em;">
+        <input class="slider" type="range" min="0" max="100" value="50" name="pain_slider1">
+      </div>
+      <div class="column col-3">
+        <p>Були дуже сильні болі</p>
+      </div>
+    </div>
+
+    <p>Наскільки за останні 4 тижні біль заважав вашій нормальній роботі (включаючи роботу поза домом та домашню
+      роботу)?</p>
+
+    <div class="columns" style="margin-left: 1em;">
+      <div class="column col-3">
+        <p>Не заважав</p>
+      </div>
+      <div class="column col-6" style="margin-top: 1em;">
+        <input class="slider" type="range" min="0" max="100" value="50" name="pain_slider2">
+      </div>
+      <div class="column col-3">
+        <p>Дуже сильно</p>
+      </div>
+    </div>
+  
+  </div>
+
+  <button class="btn btn-primary">Надіслати результат</button>
+
+</form>
+{% endblock %}
