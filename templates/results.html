@@ -3,7 +3,7 @@
 {% block content %}
 <div class="results">
   <div class="hardcrode" style="padding-bottom: 1em;">
-    Значення параметрів: <div style='font-size: large;'><b>BMI:</b> {{ input_values['BMI'] }}</div> {{ input_values['bmi_result'] }}
+    Значення параметрів: <div style='font-size: large;'><b>BMI:</b> {{ output_values['BMI'] }}</div> {{ output_values['bmi_result'] }}
     
   </div>
   <div class="hardcrode" style="padding-bottom: 1em;">
@@ -56,13 +56,19 @@
     <div class="hardcrode" style="padding-top: 1em;">
       Результат оцінки вашого здоров'я 
       <div style='font-size: large;'><b>Експертною системою:</b></div>
-
-      Не знайдено жодної хвороби, яка б відповідала вашим симптомам
-      Найбільш вірогідне захворювання, яке у вас є, - синусит
       
-      <i>Будь-ласка зверніться до лікаря якщо будете почиватись зле!</i>
-    
+      {% if match == False %}
+          <i>Не знайдено жодної хвороби, яка б повністю відповідала вашим симптомам</i><br><br>
+      {% endif %}      
+
+        <b>Ваше найбільш вірогідне захворювання:</b> {{ expert_prediction['name'] }} <br> 
+        <b>Короткий опис:</b> {{ expert_prediction['description'] }} <br> 
+        <p style = "text-indent : 3em;"> </p> {{ expert_prediction['effects'] }} <br>
+        <p style = "text-indent : 3em;"> </p>{{ expert_prediction['cause'] }} <br><br>
+        <b>Як підтвердити або спростувати діагноз?</b> {{ expert_prediction['testMethods'] }} <br><br> 
+
     </div>
+    <i>Будь-ласка зверніться до лікаря якщо почуваєтесь зле!</i>
 
 </div>
 {% endblock %}

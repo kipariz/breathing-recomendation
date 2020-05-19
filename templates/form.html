@@ -16,17 +16,18 @@
     </div>
     <div class="column col-6">
       <div class="form-group">
+
         <label class="form-checkbox">
-          <input type="checkbox" name="air"><i class="form-icon"></i> Кашель
+          <input type="checkbox" value="cough" name="air"><i class="form-icon"></i> Кашель
         </label>
         <label class="form-checkbox">
-          <input type="checkbox" name="air"><i class="form-icon"></i> Мокрота
+          <input type="checkbox" value="moisture" name="air"><i class="form-icon"></i> Мокрота
         </label>
         <label class="form-checkbox">
-          <input type="checkbox" name="air"><i class="form-icon"></i> Задишка
+          <input type="checkbox" value="dyspnea" name="air"><i class="form-icon"></i> Задишка
         </label>
         <label class="form-checkbox">
-          <input type="checkbox" name="air"><i class="form-icon"></i> Болі в грудній клітці
+          <input type="checkbox" value="chest_pain" name="air"><i class="form-icon"></i> Болі в грудній клітці
         </label>
       </div>
     </div>
@@ -41,10 +42,10 @@
         <div class="column col-6">
           <b>
           <label class="form-label" for="input-example-1">Температура</label>
-          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть вашу температуру" name="temp">
+          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть вашу температуру" name="temp" value="36.6" min="34" , max="44">
 
           <label class="form-label" for="input-example-1">Пульс</label>
-          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш пульс" name="pulse">
+          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш пульс" name="pulse" value="70"  min="0" , max="500">
 
           <label class="form-label" for="input-example-1">Вага</label>
           <input class="form-input" type="text" id="input-example-1" placeholder="Введіть вашу вагу" value="60" min="0" , max="500" name="weight" required  >
@@ -53,11 +54,11 @@
 
         <div class="column col-6">
           <label class="form-label" for="input-example-1">Тиск систолічний</label>
-          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш систолічний тиск"
+          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш систолічний тиск" value="120"
             name="bp_systolic">
 
           <label class="form-label" for="input-example-1">Тиск діастолічний</label>
-          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш діастолічний тиск"
+          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш діастолічний тиск" value="80"
             name="bp_diastolic">
 
 
@@ -140,15 +141,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct4" >
+        <input type="radio" name="phys_funct4" value="1">
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct4" >
+        <input type="radio" name="phys_funct4" value="2" checked>
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct4">
+        <input type="radio" name="phys_funct4" value="3">
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -160,15 +161,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct5" >
+        <input type="radio" name="phys_funct5" value="1">
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct5" >
+        <input type="radio" name="phys_funct5" value="2" checked>
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct5">
+        <input type="radio" name="phys_funct5" value="3">
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -180,15 +181,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct6" >
+        <input type="radio" name="phys_funct6" value="1">
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct6" >
+        <input type="radio" name="phys_funct6" value="2" checked>
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct6">
+        <input type="radio" name="phys_funct6" value="3">
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -200,15 +201,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct7" >
+        <input type="radio" name="phys_funct7" value="1">
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct7" >
+        <input type="radio" name="phys_funct7" value="2" checked>
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct7">
+        <input type="radio" name="phys_funct7" value="3">
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -220,15 +221,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct8" >
+        <input type="radio" name="phys_funct8" value="1">
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct8" >
+        <input type="radio" name="phys_funct8" value="2" checked>
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct8">
+        <input type="radio" name="phys_funct8" value="3">
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -240,15 +241,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct9" >
+        <input type="radio" name="phys_funct9" value="1">
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct9" >
+        <input type="radio" name="phys_funct9" value="2" checked>
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct9">
+        <input type="radio" name="phys_funct9" value="3">
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -260,15 +261,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct10" >
+        <input type="radio" name="phys_funct10" value="1">
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct10" >
+        <input type="radio" name="phys_funct10" value="2" checked>
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct10">
+        <input type="radio" name="phys_funct10" value="3">
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -330,8 +331,45 @@
       <div class="column col-3">
         <p>Дуже сильно</p>
       </div>
+
+      <div class="columns">
+        <div class="column col-6">
+          <p>На останок <b>параметри, пов'язані з оцінкою експертною системою</b> стану вашого здоров'я.<br> Оберіть один або декілька
+            параметрів, якщо вони стосуються вас. Якщо ні - натисність на кнопку: <br>"Надіслати результат".</p>
+        </div>
+
+        <div class="column col-6">
+          <div class="form-group">
+
+            <label class="form-checkbox">
+              <input type="checkbox" name="expert" value="headache"><i class="form-icon"></i> Головний біль
+            </label>
+            <label class="form-checkbox">
+              <input type="checkbox" name="expert" value="fainting"><i class="form-icon"></i> Непритомність
+            </label>
+            <label class="form-checkbox">
+              <input type="checkbox" name="expert" value="fatigue"><i class="form-icon"></i> Втома
+            </label>
+            <label class="form-checkbox">
+              <input type="checkbox" name="expert" value="sore_throat"><i class="form-icon"></i> Біль у горлі
+            </label>
+            <label class="form-checkbox">
+              <input type="checkbox" name="expert" value="nausea"><i class="form-icon"></i> Нудота
+            </label>
+            <label class="form-checkbox">
+              <input type="checkbox" name="expert" value="sunken_eye"><i class="form-icon"></i> Біль в очах
+            </label>
+            <label class="form-checkbox">
+              <input type="checkbox" name="expert" value="blured_vision"><i class="form-icon"></i> Затуманений зір
+            </label>
+          
+          </div>
+        </div>
+
+        
+      </div>
     </div>
-  
+
   </div>
 
   <button class="btn btn-primary">Надіслати результат</button>
