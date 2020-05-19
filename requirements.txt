@@ -1,12 +1,15 @@
 certifi==2019.6.16
 Click==7.0
+experta==1.9.4
 Flask==1.1.1
+frozendict==1.2
 gunicorn==19.9.0
 itsdangerous==1.1.0
 Jinja2==2.10.1
 joblib==0.13.2
 MarkupSafe==1.1.1
 pipenv==2018.11.26
+schema==0.6.7
 virtualenv==16.6.1
 virtualenv-clone==0.5.3
 Werkzeug==0.15.5
