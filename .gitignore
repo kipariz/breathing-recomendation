@@ -3,3 +3,5 @@ __pycache__
 .vscode
 spectre-0.5.8
 venv
+test.txt
+test.py
