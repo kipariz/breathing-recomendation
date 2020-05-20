@@ -327,7 +327,7 @@ def process_form():
     engine.run()
 
 
-    return render_template('results.html', output_values=output_values, expert_prediction=expert_prediction, match=match)
+    return render_template('results.html', output_values=output_values, match=match)
 
 
 if __name__ == "__main__":

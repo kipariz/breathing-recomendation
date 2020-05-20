@@ -6,10 +6,25 @@
     Значення параметрів: <div style='font-size: large;'><b>BMI:</b> {{ output_values['BMI'] }}</div> {{ output_values['bmi_result'] }}
     
   </div>
+
+  <div class="hardcrode" style="padding-top: 1em;">
+    Результат оцінки вашого здоров'я 
+    <div style='font-size: large;'><b>Експертною системою:</b></div>
+    
+    {% if match == False %}
+        <i>Не знайдено жодної хвороби, яка б повністю відповідала вашим симптомам</i><br><br>
+    {% else %}
+      <b>Знайдено деякі проблеми із здоров'ям. Рекомендовано отримати консультацію у лікаря. </b> <br><br> 
+    {% endif %}      
+
+  </div>
+
   <div class="hardcrode" style="padding-bottom: 1em;">
     <div style='font-size: large;'><b>SF-36:</b> {{ output_values['sf36'] }}</div> Ви маєте добрий рівень здоров'я.
     
     Враховуючи стан вашого здоров'я, рекомендуємо звичайний комплекс вправ:
+    <!-- Враховуючи стан вашого здоров'я, рекомендуємо полегшений комплекс вправ: -->
+    <!-- Враховуючи стан вашого здоров'я, вправи заборонено! Рекомендуємо звернутись до лікаря. -->
   </div>
 
   
@@ -53,22 +68,6 @@
       </div>
     </div>
 
-    <div class="hardcrode" style="padding-top: 1em;">
-      Результат оцінки вашого здоров'я 
-      <div style='font-size: large;'><b>Експертною системою:</b></div>
-      
-      {% if match == False %}
-          <i>Не знайдено жодної хвороби, яка б повністю відповідала вашим симптомам</i><br><br>
-      {% endif %}      
-
-        <b>Ваше найбільш вірогідне захворювання:</b> {{ expert_prediction['name'] }} <br> 
-        <b>Короткий опис:</b> {{ expert_prediction['description'] }} <br> 
-        <p style = "text-indent : 3em;"> </p> {{ expert_prediction['effects'] }} <br>
-        <p style = "text-indent : 3em;"> </p>{{ expert_prediction['cause'] }} <br><br>
-        <b>Як підтвердити або спростувати діагноз?</b> {{ expert_prediction['testMethods'] }} <br><br> 
-
-    </div>
-    <i>Будь-ласка зверніться до лікаря якщо почуваєтесь зле!</i>
 
 </div>
 {% endblock %}
