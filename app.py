@@ -144,6 +144,24 @@ def process_form():
 
     }
 
+    def expert_sf_interp(param):
+        if param >= 50:
+            return "yes"
+        else:
+            return "no"
+
+    def low_body_temp(temp):
+        if temp<35.5:
+            return "yes"
+        else:
+            return "no"
+
+    def high_body_temp(temp):
+        if temp>37:
+            return "yes"
+        else:
+            return "no"
+
     class Greetings(KnowledgeEngine):
 
         @DefFacts()
@@ -158,7 +176,7 @@ def process_form():
 
         @Rule(Fact(action='find_disease'), NOT(Fact(back_pain=W())), salience=1)
         def symptom_1(self):
-            self.declare(Fact(back_pain="yes"))
+            self.declare(Fact(back_pain=str(expert_sf_interp(body_pain))))
 
         @Rule(Fact(action='find_disease'), NOT(Fact(chest_pain=W())), salience=1)
         def symptom_2(self):
@@ -182,11 +200,11 @@ def process_form():
 
         @Rule(Fact(action='find_disease'), NOT(Fact(low_body_temp=W())), salience=1)
         def symptom_7(self):
-            self.declare(Fact(low_body_temp="no"))
+            self.declare(Fact(low_body_temp=str(low_body_temp(general_values['temp']))))
 
         @Rule(Fact(action='find_disease'), NOT(Fact(restlessness=W())), salience=1)
         def symptom_8(self):
-            self.declare(Fact(restlessness="no"))
+            self.declare(Fact(restlessness=str(expert_sf_interp(emotional_value))))
 
         @Rule(Fact(action='find_disease'), NOT(Fact(sore_throat=W())), salience=1)
         def symptom_9(self):
@@ -194,7 +212,7 @@ def process_form():
 
         @Rule(Fact(action='find_disease'), NOT(Fact(fever=W())), salience=1)
         def symptom_10(self):
-            self.declare(Fact(fever="no"))
+            self.declare(Fact(fever=str(high_body_temp(general_values['temp']))))
 
         @Rule(Fact(action='find_disease'), NOT(Fact(nausea=W())), salience=1)
         def symptom_11(self):
