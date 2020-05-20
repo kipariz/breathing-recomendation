@@ -10,16 +10,15 @@ from logic import *
 app = Flask(__name__)
 
 
-expert_prediction = ""
 diseases_list = []
 diseases_symptoms = []
-d_desc_map = {}
+
 symptom_map = {}
 match = True
 
 
 def preprocess():
-    global diseases_list, diseases_symptoms, symptom_map, d_desc_map
+    global diseases_list, diseases_symptoms, symptom_map
     diseases = open("diseases.txt")
     diseases_t = diseases.read()
     diseases_list = diseases_t.split("\n")
@@ -33,11 +32,6 @@ def preprocess():
         symptom_map[str(s_list)] = disease
         disease_s_file.close()
 
-        with open("Disease descriptions/" + disease + ".json", "r", encoding="utf8") as disease_s_file:
-            disease_s_data = json.load(disease_s_file)
-        d_desc_map[disease] = disease_s_data
-        disease_s_file.close()
-
 
 def identify_disease(*arguments):
     symptom_list = []
@@ -45,11 +39,6 @@ def identify_disease(*arguments):
         symptom_list.append(symptom)
     # Handle key error
     return symptom_map[str(symptom_list)]
-
-
-def get_details(disease):
-    
-    return d_desc_map[disease]
 
 
 @app.route('/')
@@ -280,12 +269,9 @@ def process_form():
 
         @Rule(Fact(action='find_disease'), Fact(disease=MATCH.disease), salience=-998)
         def disease(self, disease):
-            global expert_prediction 
-
+            
             id_disease = disease
-            disease_details = get_details(id_disease)
-
-            expert_prediction = disease_details 
+          
 
         @Rule(Fact(action='find_disease'),
             Fact(headache=MATCH.headache),

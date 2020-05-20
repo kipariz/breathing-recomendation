@@ -3,12 +3,20 @@
 {% block content %}
 <div class="results">
   <div class="hardcrode" style="padding-bottom: 1em;">
-    Значення параметрів: <div style='font-size: large;'><b>BMI:</b> {{ output_values['BMI'] }}</div> {{ output_values['bmi_result'] }}
-    
+    Результат оцінки вашого здоров'я  
   </div>
 
+  <div class="hardcrode" style="padding-bottom: 1em;">
+    <div style='font-size: large;'><b>Шкалою оцінки здоров'я SF-36:</b> {{ output_values['sf36'] }}
+  </div> Ви маєте добрий рівень здоров'я.
+
+  <div style='font-size: large;'>
+    <b>BMI:</b> {{ output_values['BMI'] }}
+  </div> 
+  {{ output_values['bmi_result'] }}
+  
   <div class="hardcrode" style="padding-top: 1em;">
-    Результат оцінки вашого здоров'я 
+    
     <div style='font-size: large;'><b>Експертною системою:</b></div>
     
     {% if match == False %}
@@ -19,8 +27,9 @@
 
   </div>
 
-  <div class="hardcrode" style="padding-bottom: 1em;">
-    <div style='font-size: large;'><b>SF-36:</b> {{ output_values['sf36'] }}</div> Ви маєте добрий рівень здоров'я.
+  
+
+  
     
     Враховуючи стан вашого здоров'я, рекомендуємо звичайний комплекс вправ:
     <!-- Враховуючи стан вашого здоров'я, рекомендуємо полегшений комплекс вправ: -->
