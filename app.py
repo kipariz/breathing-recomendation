@@ -65,6 +65,17 @@ def about():
 
 @app.route('/process_form', methods=["POST"])
 def process_form():
+    # print("cough" in respiratory_diseases)
+    # print("headache" in expert_diseases)
+    def checkbox_verification(value, checkbox_form):
+        try:
+            if value in checkbox_form:
+                return "yes"
+            else:
+                return "no"
+        except TypeError:
+            return "no"
+
     #air diseases
     respiratory_diseases = None
     if request.method == 'POST':
@@ -98,8 +109,6 @@ def process_form():
     for i in phys_value_get.values():
         phys_value_arr.append(i)
 
-    #physical functioning value
-    physical_functioning(phys_value_arr)
 
     #emotional 
     emotional_value = None
@@ -112,8 +121,7 @@ def process_form():
 
     bmi = calculate_bmi(general_values['height'], general_values['weight'])
 
-    #bodily pain value
-    bodily_pain([int(request.form['pain_slider1']),
+    body_pain =  bodily_pain([int(request.form['pain_slider1']),
                        int(request.form['pain_slider2'])])
     
    
@@ -124,13 +132,16 @@ def process_form():
         else:
             return False
     
-    # print("cough" in respiratory_diseases)
-    def data_for_expert():
-        pass
-
+    expert_diseases = request.form.getlist('expert')
+    
     output_values = {
         "BMI": bmi,
-        "bmi_result": interpreter_bmi(bmi)
+        "bmi_result": interpreter_bmi(bmi),
+        "body_pain": body_pain,
+        "emotional_value": emotional_value,
+        "physical_functioning": physical_functioning(phys_value_arr),
+        "sf36": round(average([body_pain,emotional_value,physical_functioning(phys_value_arr)]),0)
+
     }
 
     class Greetings(KnowledgeEngine):
@@ -143,7 +154,7 @@ def process_form():
         @Rule(Fact(action='find_disease'), NOT(Fact(headache=W())), salience=1)
         def symptom_0(self):
             # self.declare(Fact(headache=input("headache: "))) int(request.form['expert_input']
-            self.declare(Fact(headache="yes"))
+            self.declare(Fact(headache=str(checkbox_verification("headache",expert_diseases))))
 
         @Rule(Fact(action='find_disease'), NOT(Fact(back_pain=W())), salience=1)
         def symptom_1(self):
@@ -151,23 +162,23 @@ def process_form():
 
         @Rule(Fact(action='find_disease'), NOT(Fact(chest_pain=W())), salience=1)
         def symptom_2(self):
-            self.declare(Fact(chest_pain="yes"))
+            self.declare(Fact(chest_pain=str(checkbox_verification("chest_pain",respiratory_diseases))))
 
         @Rule(Fact(action='find_disease'), NOT(Fact(cough=W())), salience=1)
         def symptom_3(self):
-            self.declare(Fact(cough="no"))
+            self.declare(Fact(cough=str(checkbox_verification("cough", respiratory_diseases))))
 
         @Rule(Fact(action='find_disease'), NOT(Fact(fainting=W())), salience=1)
         def symptom_4(self):
-            self.declare(Fact(fainting="no"))
+            self.declare(Fact(fainting=str(checkbox_verification("fainting",expert_diseases))))
 
         @Rule(Fact(action='find_disease'), NOT(Fact(fatigue=W())), salience=1)
         def symptom_5(self):
-            self.declare(Fact(fatigue="no"))
+            self.declare(Fact(fatigue=str(checkbox_verification("fatigue",expert_diseases))))
 
         @Rule(Fact(action='find_disease'), NOT(Fact(sunken_eyes=W())), salience=1)
         def symptom_6(self):
-            self.declare(Fact(sunken_eyes="no"))
+            self.declare(Fact(sunken_eyes=str((checkbox_verification("sunken_eyes",expert_diseases)))))
 
         @Rule(Fact(action='find_disease'), NOT(Fact(low_body_temp=W())), salience=1)
         def symptom_7(self):
@@ -179,7 +190,7 @@ def process_form():
 
         @Rule(Fact(action='find_disease'), NOT(Fact(sore_throat=W())), salience=1)
         def symptom_9(self):
-            self.declare(Fact(sore_throat="no"))
+            self.declare(Fact(sore_throat=str(checkbox_verification("sore_throat",expert_diseases))))
 
         @Rule(Fact(action='find_disease'), NOT(Fact(fever=W())), salience=1)
         def symptom_10(self):
@@ -187,11 +198,11 @@ def process_form():
 
         @Rule(Fact(action='find_disease'), NOT(Fact(nausea=W())), salience=1)
         def symptom_11(self):
-            self.declare(Fact(nausea="no"))
+            self.declare(Fact(nausea=str(checkbox_verification("nausea",expert_diseases))))
 
         @Rule(Fact(action='find_disease'), NOT(Fact(blurred_vision=W())), salience=1)
         def symptom_12(self):
-            self.declare(Fact(blurred_vision="no"))
+            self.declare(Fact(blurred_vision=str(checkbox_verification("blurred_vision",expert_diseases))))
 
         @Rule(Fact(action='find_disease'), Fact(headache="no"), Fact(back_pain="no"), Fact(chest_pain="no"), Fact(cough="no"), Fact(fainting="no"), Fact(sore_throat="no"), Fact(fatigue="yes"), Fact(restlessness="no"), Fact(low_body_temp="no"), Fact(fever="yes"), Fact(sunken_eyes="no"), Fact(nausea="yes"), Fact(blurred_vision="no"))
         def disease_0(self):
