@@ -8,7 +8,6 @@
    
     <!-- Оцінка параметрів пов'язаних з органами дихання -->
    
-
   <div class="columns">
     <div class="column col-6">
       <p>В першу чергу перевіримо <b>параметри, пов'язані з хворобами органів дихання.</b><br> Оберіть один або декілька
@@ -45,25 +44,25 @@
           <input class="form-input" type="text" id="input-example-1" placeholder="Введіть вашу температуру" name="temp" value="36.6" min="34" , max="44">
 
           <label class="form-label" for="input-example-1">Пульс</label>
-          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш пульс" name="pulse" value="70"  min="0" , max="500">
+          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш пульс" name="pulse" value="70"  min="50" , max="240">
 
           <label class="form-label" for="input-example-1">Вага</label>
-          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть вашу вагу" value="60" min="0" , max="500" name="weight" required  >
+          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть вашу вагу" value="60" min="30" , max="500" name="weight" required  >
           
         </div>
 
         <div class="column col-6">
           <label class="form-label" for="input-example-1">Тиск систолічний</label>
-          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш систолічний тиск" value="120"
+          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш систолічний тиск" value="120"  min="100" , max="140"
             name="bp_systolic">
 
           <label class="form-label" for="input-example-1">Тиск діастолічний</label>
-          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш діастолічний тиск" value="80"
+          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш діастолічний тиск" value="80"  min="50" , max="100"
             name="bp_diastolic">
 
 
           <label class="form-label" for="input-example-1">Зріст (см)</label>
-          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш зріст" value="160" min="0" , max="300" name="height" required >
+          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш зріст" value="160" min="30" , max="300" name="height" required >
           </b>
         </div>
 
@@ -311,7 +310,7 @@
         <p>Не було болі у тілі</p>
       </div>
       <div class="column col-6" style="margin-top: 1em;">
-        <input class="slider" type="range" min="0" max="100" value="50" name="pain_slider1">
+        <input class="slider" type="range" min="0" max="100" value="20" name="pain_slider1">
       </div>
       <div class="column col-3">
         <p>Були дуже сильні болі</p>
@@ -326,7 +325,7 @@
         <p>Не заважав</p>
       </div>
       <div class="column col-6" style="margin-top: 1em;">
-        <input class="slider" type="range" min="0" max="100" value="50" name="pain_slider2">
+        <input class="slider" type="range" min="0" max="100" value="20" name="pain_slider2">
       </div>
       <div class="column col-3">
         <p>Дуже сильно</p>

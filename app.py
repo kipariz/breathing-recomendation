@@ -16,7 +16,6 @@ diseases_symptoms = []
 symptom_map = {}
 match = True
 
-
 def preprocess():
     global diseases_list, diseases_symptoms, symptom_map
     diseases = open("diseases.txt")
@@ -54,8 +53,9 @@ def about():
 
 @app.route('/process_form', methods=["POST"])
 def process_form():
-    # print("cough" in respiratory_diseases)
-    # print("headache" in expert_diseases)
+    # global health
+    health = "normal"
+    
     def checkbox_verification(value, checkbox_form):
         try:
             if value in checkbox_form:
@@ -110,29 +110,32 @@ def process_form():
 
     bmi = calculate_bmi(general_values['height'], general_values['weight'])
 
-    body_pain =  bodily_pain([int(request.form['pain_slider1']),
+    body_pain =  100 - bodily_pain([int(request.form['pain_slider1']),
                        int(request.form['pain_slider2'])])
     
-   
-    #alert for air diseases
-    def respiratory_danger(respiratory_diseases):
-        if (len(respiratory_diseases)>=2):
-            return True
-        else:
-            return False
     
     expert_diseases = request.form.getlist('expert')
     
+    sf36_value = round(average([body_pain,emotional_value,physical_functioning(phys_value_arr)]),0)
+
     output_values = {
         "BMI": bmi,
         "bmi_result": interpreter_bmi(bmi),
         "body_pain": body_pain,
         "emotional_value": emotional_value,
         "physical_functioning": physical_functioning(phys_value_arr),
-        "sf36": round(average([body_pain,emotional_value,physical_functioning(phys_value_arr)]),0)
-
+        "sf36": sf36_value,
+        "sf36_interp": interpreter_sf(sf36_value)
     }
 
+    print(health)
+    health = rewrite_health_param(health, check_general_param(general_values['temp'], general_values['pulse'], general_values['bp_systolic'], general_values['bp_diastolic']))
+    print(health)
+    health = rewrite_health_param(health, recomendation(sf36_value, bmi))
+    print(health)
+    health = rewrite_health_param(health, respiratory_danger(respiratory_diseases))
+    print(health)
+    
     def expert_sf_interp(param):
         if param >= 50:
             return "yes"
@@ -313,7 +316,7 @@ def process_form():
     engine.run()
 
 
-    return render_template('results.html', output_values=output_values, match=match)
+    return render_template('results.html', output_values=output_values, match=match, health=health)
 
 
 if __name__ == "__main__":

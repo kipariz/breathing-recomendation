@@ -8,13 +8,15 @@
 
   <div class="hardcrode" style="padding-bottom: 1em;">
     <div style='font-size: large;'><b>Шкалою оцінки здоров'я SF-36:</b> {{ output_values['sf36'] }}
-  </div> Ви маєте добрий рівень здоров'я.
+  </div> {{ output_values['sf36_interp'] }} body_pain {{ output_values['body_pain'] }} 
+    emotional_value {{ output_values['emotional_value'] }} 
+    physical_functioning {{ output_values['physical_functioning'] }} 
 
   <div style='font-size: large;'>
     <b>BMI:</b> {{ output_values['BMI'] }}
   </div> 
   {{ output_values['bmi_result'] }}
-  
+
   <div class="hardcrode" style="padding-top: 1em;">
     
     <div style='font-size: large;'><b>Експертною системою:</b></div>
@@ -26,14 +28,15 @@
     {% endif %}      
 
   </div>
-
   
-
-  
-    
+  {% if health == "normal" %}
     Враховуючи стан вашого здоров'я, рекомендуємо звичайний комплекс вправ:
-    <!-- Враховуючи стан вашого здоров'я, рекомендуємо полегшений комплекс вправ: -->
-    <!-- Враховуючи стан вашого здоров'я, вправи заборонено! Рекомендуємо звернутись до лікаря. -->
+  {% elif health == "easy" %}
+    Враховуючи стан вашого здоров'я, рекомендуємо полегшений комплекс вправ:
+  {% elif health == "no" %}
+    Вибачте, враховуючи стан вашого здоров'я, виконувати вправи заборонено! Рекомендуємо звернутись до лікаря.
+  {% endif %} 
+  
   </div>
 
   

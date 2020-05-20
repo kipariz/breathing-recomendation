@@ -22,6 +22,57 @@ def interpreter_bmi(bmi):
     elif 40 <= bmi:
         return "У вас ожиріння 3 ступеню"
 
+def interpreter_sf(sf):
+    if sf < 30:
+        return "Ви маєте дуже поганий рівень здоров'я."
+    elif 30 <= sf < 60:
+        return "Ви маєте поганий рівень здоров'я."
+    elif 60 <= sf < 80:
+        return "Ви маєте досить добрий рівень здоров'я."
+    elif 80 <= sf < 100:
+        return "Ви маєте добрий рівень здоров'я."
+    
+def check_general_param(temp, pulse, bp_systolic, bp_diastolic):
+    
+    if (temp < 36 or temp > 37):
+        return "no"
+    elif (pulse < 60 or pulse > 120):
+        return "no"
+    elif (bp_systolic < 115 or bp_systolic > 130):
+        return "no"
+    elif (bp_diastolic < 60 or bp_diastolic > 90):
+        return "no"
+    else:
+        return "normal"
+
+def recomendation(sf, bmi):
+    if ((70 <= sf < 100) and (18.5 <= bmi < 30)):
+        return "normal"
+    elif ((40 <= sf < 70) or (30 <= bmi < 40)):
+        return "easy"
+    else:
+        return "no"
+
+def respiratory_danger(respiratory_diseases):
+    try:
+        if len(respiratory_diseases)>=2:
+            return "no"
+        elif (len(respiratory_diseases)==1):
+            return "easy"
+        else: return "normal"
+    except TypeError:
+        return "normal"
+
+
+def rewrite_health_param(new_value, health):
+    if ((health == 'easy') and (new_value == 'normal')):
+        return health
+    elif ((health == 'no') and ( (new_value == 'easy') or (new_value == 'normal'))):
+        return health
+    else:
+        return new_value
+
+
 def average(lst): 
     return sum(lst) / len(lst) 
 
