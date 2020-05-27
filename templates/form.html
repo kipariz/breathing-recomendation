@@ -5,7 +5,6 @@
 <form method="post" action="./process_form">
   <p> Останнім часом багато людей гине від хронічних хвороб, зростає смертність та ускладнення від інфекційних. <b>Мета проекту - допомогти розвинути дихальну систему.</b> Загортований організм зможе легше перенести хвороби, тож <b>будьмо здорові!</b>
   </p>
-   
     <!-- Оцінка параметрів пов'язаних з органами дихання -->
    
   <div class="columns">
@@ -17,17 +16,19 @@
       <div class="form-group">
 
         <label class="form-checkbox">
-          <input type="checkbox" value="cough" name="air"><i class="form-icon"></i> Кашель
+          <input class="messageCheckbox" type="checkbox" value="cough" name="air"><i class="form-icon"></i> Кашель
         </label>
         <label class="form-checkbox">
-          <input type="checkbox" value="moisture" name="air"><i class="form-icon"></i> Мокрота
+          <input class="messageCheckbox" type="checkbox" value="moisture" name="air"><i class="form-icon"></i> Мокрота
         </label>
         <label class="form-checkbox">
-          <input type="checkbox" value="dyspnea" name="air"><i class="form-icon"></i> Задишка
+          <input class="messageCheckbox" type="checkbox" value="dyspnea" name="air"><i class="form-icon"></i> Задишка
         </label>
         <label class="form-checkbox">
-          <input type="checkbox" value="chest_pain" name="air"><i class="form-icon"></i> Болі в грудній клітці
+          <input class="messageCheckbox" type="checkbox" value="chest_pain" name="air"><i class="form-icon"></i> Болі в грудній клітці
         </label>
+      
+
       </div>
     </div>
 
@@ -41,28 +42,28 @@
         <div class="column col-6">
           <b>
           <label class="form-label" for="input-example-1">Температура</label>
-          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть вашу температуру" name="temp" value="36.6" min="34" , max="44">
+          <input class="form-input messageCheckbox" type="text" id="input-example-1" placeholder="Введіть вашу температуру" name="temp" value="36.6" min="34" , max="44">
 
           <label class="form-label" for="input-example-1">Пульс</label>
-          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш пульс" name="pulse" value="70"  min="50" , max="240">
+          <input class="form-input messageCheckbox" type="text" id="input-example-1" placeholder="Введіть ваш пульс" name="pulse" value="70"  min="50" , max="240">
 
           <label class="form-label" for="input-example-1">Вага</label>
-          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть вашу вагу" value="60" min="30" , max="500" name="weight" required  >
+          <input class="form-input messageCheckbox" type="text" id="input-example-1" placeholder="Введіть вашу вагу" value="60" min="30" , max="500" name="weight" required  >
           
         </div>
 
         <div class="column col-6">
           <label class="form-label" for="input-example-1">Тиск систолічний</label>
-          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш систолічний тиск" value="120"  min="100" , max="140"
+          <input class="form-input messageCheckbox" type="text" id="input-example-1" placeholder="Введіть ваш систолічний тиск" value="120"  min="100" , max="140"
             name="bp_systolic">
 
           <label class="form-label" for="input-example-1">Тиск діастолічний</label>
-          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш діастолічний тиск" value="80"  min="50" , max="100"
+          <input class="form-input messageCheckbox" type="text" id="input-example-1" placeholder="Введіть ваш діастолічний тиск" value="80"  min="50" , max="100"
             name="bp_diastolic">
 
 
           <label class="form-label" for="input-example-1">Зріст (см)</label>
-          <input class="form-input" type="text" id="input-example-1" placeholder="Введіть ваш зріст" value="160" min="30" , max="300" name="height" required >
+          <input class="form-input messageCheckbox" type="text" id="input-example-1" placeholder="Введіть ваш зріст" value="160" min="30" , max="300" name="height" required >
           </b>
         </div>
 
@@ -71,6 +72,7 @@
 
     <!-- SF-36 -->
     <!-- физическое функционирование (Physical Functioning — PF); -->
+    <!-- физическое функционирование (phys_funct ); -->
 
     <br><p>Наступні пункти стосуються діяльності, яку ви можете робити протягом звичайного дня. <b>Чи обмежує вас зараз ваше
       здоров'я у цих заходах?</b> Якщо так, на скільки?</p>
@@ -80,15 +82,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct1" value="1">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct1" value="1">
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct1" value="2" checked>
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct1" value="2" checked>
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct1" value="3">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct1" value="3">
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -100,15 +102,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct2"  value="1">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct2"  value="1">
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct2"  value="2">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct2"  value="2">
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct2"  value="3" checked>
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct2"  value="3" checked>
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -120,15 +122,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct3" value="1" checked>
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct3" value="1" checked>
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct3" value="2">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct3" value="2">
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct3" value="3">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct3" value="3">
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -140,15 +142,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct4" value="1">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct4" value="1">
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct4" value="2" checked>
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct4" value="2" checked>
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct4" value="3">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct4" value="3">
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -160,15 +162,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct5" value="1">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct5" value="1">
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct5" value="2" checked>
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct5" value="2" checked>
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct5" value="3">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct5" value="3">
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -180,15 +182,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct6" value="1">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct6" value="1">
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct6" value="2" checked>
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct6" value="2" checked>
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct6" value="3">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct6" value="3">
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -200,15 +202,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct7" value="1">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct7" value="1">
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct7" value="2" checked>
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct7" value="2" checked>
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct7" value="3">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct7" value="3">
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -220,15 +222,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct8" value="1">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct8" value="1">
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct8" value="2" checked>
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct8" value="2" checked>
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct8" value="3">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct8" value="3">
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -240,15 +242,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct9" value="1">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct9" value="1">
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct9" value="2" checked>
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct9" value="2" checked>
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct9" value="3">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct9" value="3">
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -260,15 +262,15 @@
       
       <b>
       <label class="form-radio">
-        <input type="radio" name="phys_funct10" value="1">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct10" value="1">
         <i class="form-icon"></i> Так, сильно обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct10" value="2" checked>
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct10" value="2" checked>
         <i class="form-icon"></i> Так, трохи обмежує
       </label>
       <label class="form-radio">
-        <input type="radio" name="phys_funct10" value="3">
+        <input class="messageCheckbox" id="phys_funct" type="radio" name="phys_funct10" value="3">
         <i class="form-icon"></i> Ні, зовсім не обмежує
       </label>
       </b>
@@ -285,16 +287,16 @@
     <div class="form-group">
       
           <label class="form-checkbox ">
-            <input type="checkbox" value="1" name="emotional" ><i class="form-icon"></i> Скорочення кількості часу, який ви витратили
+            <input class="messageCheckbox" type="checkbox" value="1" name="emotional" ><i class="form-icon"></i> Скорочення кількості часу, який ви витратили
             на роботу чи іншу діяльність
           </label>
 
           <label class="form-checkbox ">
-            <input type="checkbox" value="2" name="emotional"  checked><i class="form-icon"></i> Виконано менше, ніж хотілося б
+            <input class="messageCheckbox" type="checkbox" value="2" name="emotional"  checked><i class="form-icon"></i> Виконано менше, ніж хотілося б
           </label>
 
           <label class="form-checkbox ">
-            <input type="checkbox" value="3" name="emotional" ><i class="form-icon"></i> Не робили роботу чи іншу діяльність так
+            <input class="messageCheckbox" type="checkbox" value="3" name="emotional" ><i class="form-icon"></i> Не робили роботу чи іншу діяльність так
             ретельно, як зазвичай
           </label>
 
@@ -310,7 +312,7 @@
         <p>Не було болі у тілі</p>
       </div>
       <div class="column col-6" style="margin-top: 1em;">
-        <input class="slider" type="range" min="0" max="100" value="20" name="pain_slider1">
+        <input class="slider messageCheckbox" type="range" min="0" max="100" value="20" name="pain_slider1">
       </div>
       <div class="column col-3">
         <p>Були дуже сильні болі</p>
@@ -325,7 +327,7 @@
         <p>Не заважав</p>
       </div>
       <div class="column col-6" style="margin-top: 1em;">
-        <input class="slider" type="range" min="0" max="100" value="20" name="pain_slider2">
+        <input class="slider messageCheckbox" type="range" min="0" max="100" value="20" name="pain_slider2">
       </div>
       <div class="column col-3">
         <p>Дуже сильно</p>
@@ -341,25 +343,25 @@
           <div class="form-group">
 
             <label class="form-checkbox">
-              <input type="checkbox" name="expert" value="headache"><i class="form-icon"></i> Головний біль
+              <input class="messageCheckbox" type="checkbox" name="expert" value="headache"><i class="form-icon"></i> Головний біль
             </label>
             <label class="form-checkbox">
-              <input type="checkbox" name="expert" value="fainting"><i class="form-icon"></i> Непритомність
+              <input class="messageCheckbox" type="checkbox" name="expert" value="fainting"><i class="form-icon"></i> Непритомність
             </label>
             <label class="form-checkbox">
-              <input type="checkbox" name="expert" value="fatigue"><i class="form-icon"></i> Втома
+              <input class="messageCheckbox" type="checkbox" name="expert" value="fatigue"><i class="form-icon"></i> Втома
             </label>
             <label class="form-checkbox">
-              <input type="checkbox" name="expert" value="sore_throat"><i class="form-icon"></i> Біль у горлі
+              <input class="messageCheckbox" type="checkbox" name="expert" value="sore_throat"><i class="form-icon"></i> Біль у горлі
             </label>
             <label class="form-checkbox">
-              <input type="checkbox" name="expert" value="nausea"><i class="form-icon"></i> Нудота
+              <input class="messageCheckbox" type="checkbox" name="expert" value="nausea"><i class="form-icon"></i> Нудота
             </label>
             <label class="form-checkbox">
-              <input type="checkbox" name="expert" value="sunken_eye"><i class="form-icon"></i> Біль в очах
+              <input class="messageCheckbox" type="checkbox" name="expert" value="sunken_eye"><i class="form-icon"></i> Біль в очах
             </label>
             <label class="form-checkbox">
-              <input type="checkbox" name="expert" value="blured_vision"><i class="form-icon"></i> Затуманений зір
+              <input class="messageCheckbox" type="checkbox" name="expert" value="blured_vision"><i class="form-icon"></i> Затуманений зір
             </label>
           
           </div>
@@ -370,8 +372,67 @@
     </div>
 
   </div>
+   
 
-  <button class="btn btn-primary">Надіслати результат</button>
+  <button class="btn btn-primary" id="submit-button">Надіслати результат</button>
+  
+  <script>
+    if(localStorage.getItem('input_values')){
+        var checkedValue = localStorage.getItem('input_values');
+        checkedValue = JSON.parse(checkedValue);
 
+        var inputElements = document.getElementsByClassName('messageCheckbox');
+        
+        for(var i=0; inputElements[i]; ++i){
+            if ((inputElements[i].name === "air")){
+                
+                inputElements[i].checked = checkedValue["air " + inputElements[i].value];
+                                          
+            }
+            else if ((inputElements[i].type ==="text") || (inputElements[i].type ==="range")) {
+
+                inputElements[i].value = checkedValue[inputElements[i].name];
+            }
+            else if(inputElements[i].id ==="phys_funct"){
+              
+              if(inputElements[i].value === checkedValue[inputElements[i].name]){
+                  inputElements[i].checked = true;                 
+              }
+            }  
+            else if ((inputElements[i].name ==="emotional") || (inputElements[i].name ==="expert")){
+              inputElements[i].checked = checkedValue[(inputElements[i].value)];
+            }
+        }
+      }
+
+    const submitButton = document.getElementById('submit-button');
+
+    submitButton.addEventListener('click', event => {
+        var checkedValue = {}; 
+        var inputElements = document.getElementsByClassName('messageCheckbox');
+        for(var i=0; inputElements[i]; ++i){
+            if ((inputElements[i].name === "air")){
+                
+                checkedValue["air " + (inputElements[i].value)] = inputElements[i].checked;
+            
+            }
+            else if ((inputElements[i].name ==="emotional") || (inputElements[i].name ==="expert")){
+                checkedValue[(inputElements[i].value)] = inputElements[i].checked;
+            }
+            
+            else if ((inputElements[i].type ==="text")|| (inputElements[i].type ==="range")) {
+              checkedValue[(inputElements[i].name)] = inputElements[i].value;
+            }
+            else if(inputElements[i].id ==="phys_funct"){
+              if(inputElements[i].checked){
+                  checkedValue[(inputElements[i].name)] = inputElements[i].value;
+              }
+            }  
+        }
+        
+        localStorage.setItem('input_values', JSON.stringify(checkedValue));
+    });
+  </script>
+  
 </form>
 {% endblock %}
