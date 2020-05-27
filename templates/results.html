@@ -8,14 +8,33 @@
 
   <div class="hardcrode" style="padding-bottom: 1em;">
     <div style='font-size: large;'><b>Шкалою оцінки здоров'я SF-36:</b> {{ output_values['sf36'] }}
-  </div> {{ output_values['sf36_interp'] }} body_pain {{ output_values['body_pain'] }} 
-    emotional_value {{ output_values['emotional_value'] }} 
-    physical_functioning {{ output_values['physical_functioning'] }} 
-
+  </div> 
+  <div class="bar" style="width:25%;">
+    <div class="bar-item tooltip" data-tooltip="{{ output_values['sf36'] }}" role="progressbar" style="width:{{ output_values['sf36'] }}%;"></div>
+  </div>
+  {{ output_values['sf36_interp'] }}
+  
   <div style='font-size: large;'>
     <b>BMI:</b> {{ output_values['BMI'] }}
   </div> 
+  <div class="bar" style="width:25%;">
+    <div class="bar-item tooltip" data-tooltip="{{ output_values['BMI'] }}" role="progressbar" style="width:{{ output_values['BMI'] }}%; " aria-valuemin="15" aria-valuemax="50"></div>
+  </div>  
   {{ output_values['bmi_result'] }}
+
+  <div style='font-size: large; padding-top: 1em;'>
+    <b>Ваш емоційний стан:</b> {{ output_values['emotional_value'] }} 
+  </div> 
+  <div class="bar" style="width:25%;">
+    <div class="bar-item tooltip" data-tooltip="{{ output_values['emotional_value'] }}" role="progressbar" style="width:{{ output_values['emotional_value'] }}%;"></div>
+  </div>
+
+  <div style='font-size: large;'>
+    <b>Фізичного функціонування:</b> {{ output_values['physical_functioning'] }} 
+  </div> 
+  <div class="bar" style="width:25%;">
+    <div class="bar-item tooltip" data-tooltip="{{ output_values['physical_functioning'] }}" role="progressbar" style="width:{{ output_values['physical_functioning'] }}%;"></div>
+  </div>  
 
   <div class="hardcrode" style="padding-top: 1em;">
     
