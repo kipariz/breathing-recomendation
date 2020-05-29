@@ -125,16 +125,18 @@ def process_form():
         "emotional_value": emotional_value,
         "physical_functioning": physical_functioning(phys_value_arr),
         "sf36": sf36_value,
-        "sf36_interp": interpreter_sf(sf36_value)
+        "sf36_interp": interpreter_sf(sf36_value),
+        "emotional_interp": interpreter_emotional(emotional_value),
+        "physic_interp": interpreter_physic(physical_functioning(phys_value_arr))
     }
 
-    print(health)
+    print("start " + health)
     health = rewrite_health_param(health, check_general_param(general_values['temp'], general_values['pulse'], general_values['bp_systolic'], general_values['bp_diastolic']))
-    print(health)
+    print("general_values " + health)
     health = rewrite_health_param(health, recomendation(sf36_value, bmi))
-    print(health)
+    print("sf36_value, bmi " + health)
     health = rewrite_health_param(health, respiratory_danger(respiratory_diseases))
-    print(health)
+    print("respiratory_danger " + health)
     
     def expert_sf_interp(param):
         if param >= 50:

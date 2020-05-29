@@ -24,13 +24,33 @@ def interpreter_bmi(bmi):
 
 def interpreter_sf(sf):
     if sf < 30:
-        return "Ви маєте дуже поганий рівень здоров'я."
+        return "Ви маєте дуже поганий загальний рівень здоров'я."
     elif 30 <= sf < 60:
-        return "Ви маєте поганий рівень здоров'я."
+        return "Ви маєте поганий загальний рівень здоров'я."
     elif 60 <= sf < 80:
-        return "Ви маєте досить добрий рівень здоров'я."
-    elif 80 <= sf < 100:
-        return "Ви маєте добрий рівень здоров'я."
+        return "Ви маєте досить загальний добрий рівень здоров'я."
+    elif 80 <= sf <= 100:
+        return "Ви маєте добрий загальний рівень здоров'я."
+
+def interpreter_emotional(sf):
+    if sf < 30:
+        return "Ви маєте дуже поганий психічного здоров'я."
+    elif 30 <= sf < 60:
+        return "Ви маєте поганий рівень психічного здоров'я."
+    elif 60 <= sf < 80:
+        return "Ви маєте досить добрий рівень психічного здоров'я."
+    elif 80 <= sf <= 100:
+        return "Ви маєте добрий рівень психічного здоров'я."
+
+def interpreter_physic(sf):
+    if sf < 30:
+        return "Ви маєте дуже поганий рівень фізичного здоров'я."
+    elif 30 <= sf < 60:
+        return "Ви маєте поганий рівень фізичного здоров'я."
+    elif 60 <= sf < 80:
+        return "Ви маєте досить добрий фізичного рівень здоров'я."
+    elif 80 <= sf <= 100:
+        return "Ви маєте добрий рівень фізичного здоров'я."
     
 def check_general_param(temp, pulse, bp_systolic, bp_diastolic):
     
@@ -55,9 +75,9 @@ def recomendation(sf, bmi):
 
 def respiratory_danger(respiratory_diseases):
     try:
-        if len(respiratory_diseases)>=2:
+        if len(respiratory_diseases)>=3:
             return "no"
-        elif (len(respiratory_diseases)==1):
+        elif (len(respiratory_diseases)==2):
             return "easy"
         else: return "normal"
     except TypeError:

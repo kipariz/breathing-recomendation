@@ -3,102 +3,413 @@
 {% block content %}
 <div class="results">
   <div class="hardcrode" style="padding-bottom: 1em;">
-    Результат оцінки вашого здоров'я  
+    Результат оцінки вашого здоров'я
   </div>
 
   <div class="hardcrode" style="padding-bottom: 1em;">
     <div style='font-size: large;'><b>Шкалою оцінки здоров'я SF-36:</b> {{ output_values['sf36'] }}
-  </div> 
-  <div class="bar" style="width:25%;">
-    <div class="bar-item tooltip" data-tooltip="{{ output_values['sf36'] }}" role="progressbar" style="width:{{ output_values['sf36'] }}%;"></div>
-  </div>
-  {{ output_values['sf36_interp'] }}
-  
-  <div style='font-size: large;'>
-    <b>BMI:</b> {{ output_values['BMI'] }}
-  </div> 
-  <div class="bar" style="width:25%;">
-    <div class="bar-item tooltip" data-tooltip="{{ output_values['BMI'] }}" role="progressbar" style="width:{{ output_values['BMI'] }}%; " aria-valuemin="15" aria-valuemax="50"></div>
-  </div>  
-  {{ output_values['bmi_result'] }}
+    </div>
+    <div class="bar" style="width:25%;">
+      <div class="bar-item tooltip" data-tooltip="{{ output_values['sf36'] }}" role="progressbar"
+        style="width:{{ output_values['sf36'] }}%;"></div>
+    </div>
+    {{ output_values['sf36_interp'] }}
 
-  <div style='font-size: large; padding-top: 1em;'>
-    <b>Ваш емоційний стан:</b> {{ output_values['emotional_value'] }} 
-  </div> 
-  <div class="bar" style="width:25%;">
-    <div class="bar-item tooltip" data-tooltip="{{ output_values['emotional_value'] }}" role="progressbar" style="width:{{ output_values['emotional_value'] }}%;"></div>
-  </div>
+    <div style='font-size: large; margin-top: 1em;'>
+      <b>BMI:</b> {{ output_values['BMI'] }}
+    </div>
+    <div class="bar" style="width:25%;">
+      <div class="bar-item tooltip" data-tooltip="{{ output_values['BMI'] }}" role="progressbar"
+        style="width:{{ output_values['BMI'] }}%; " aria-valuemin="15" aria-valuemax="50"></div>
+    </div>
+    {{ output_values['bmi_result'] }}
 
-  <div style='font-size: large;'>
-    <b>Фізичного функціонування:</b> {{ output_values['physical_functioning'] }} 
-  </div> 
-  <div class="bar" style="width:25%;">
-    <div class="bar-item tooltip" data-tooltip="{{ output_values['physical_functioning'] }}" role="progressbar" style="width:{{ output_values['physical_functioning'] }}%;"></div>
-  </div>  
+    <div style='font-size: large; padding-top: 1em;'>
+      <b>Ваш емоційний стан:</b> {{ output_values['emotional_value'] }}
+    </div>
+    <div class="bar" style="width:25%;">
+      <div class="bar-item tooltip" data-tooltip="{{ output_values['emotional_value'] }}" role="progressbar"
+        style="width:{{ output_values['emotional_value'] }}%;"></div>
+    </div>
+    {{ output_values['emotional_interp'] }}
 
-  <div class="hardcrode" style="padding-top: 1em;">
-    
-    <div style='font-size: large;'><b>Експертною системою:</b></div>
-    
-    {% if match == False %}
-        <i>Не виявленно симтомів, які б значно заважади фізичній активності.</i><br><br>
-    {% else %}
-      <b>Знайдено деякі проблеми із здоров'ям. Рекомендовано отримати консультацію у лікаря. </b> <br><br> 
-    {% endif %}      
+    <div style='font-size: large; margin-top: 1em;'>
+      <b>Стан фізичного функціонування:</b> {{ output_values['physical_functioning'] }}
+    </div>
+    <div class="bar" style="width:25%;">
+      <div class="bar-item tooltip" data-tooltip="{{ output_values['physical_functioning'] }}" role="progressbar"
+        style="width:{{ output_values['physical_functioning'] }}%;"></div>
+    </div>
+    {{ output_values['physic_interp'] }}
 
-  </div>
-  
-  {% if health == "normal" %}
-    Враховуючи стан вашого здоров'я, рекомендуємо звичайний комплекс вправ:
-  {% elif health == "easy" %}
-    Враховуючи стан вашого здоров'я, рекомендуємо полегшений комплекс вправ:
-  {% elif health == "no" %}
-    Вибачте, враховуючи стан вашого здоров'я, виконувати вправи заборонено! Рекомендуємо звернутись до лікаря.
-  {% endif %} 
-  
-  </div>
+    <div class="hardcrode" style="padding-top: 1em;">
 
-  
-    <div class="carousel">
-      
-      <input class="carousel-locator" id="slide-1" type="radio" name="carousel-radio" hidden="" checked="">
-      <input class="carousel-locator" id="slide-2" type="radio" name="carousel-radio" hidden="">
-      <input class="carousel-locator" id="slide-3" type="radio" name="carousel-radio" hidden="">
-      <input class="carousel-locator" id="slide-4" type="radio" name="carousel-radio" hidden="">
-      
-      <!-- carousel container -->
-      <div class="carousel-container"> 
-        
-        <figure class="carousel-item">
-          <label class="item-prev btn btn-action btn-lg" for="slide-4"><i class="icon icon-arrow-left"></i></label>
-          <label class="item-next btn btn-action btn-lg" for="slide-2"><i class="icon icon-arrow-right"></i></label>
-          <img class="img-responsive rounded" src="/static/pic1.jpg" alt="macOS Yosemite Wallpaper">
-        </figure>
-        <figure class="carousel-item">
-          <label class="item-prev btn btn-action btn-lg" for="slide-1"><i class="icon icon-arrow-left"></i></label>
-          <label class="item-next btn btn-action btn-lg" for="slide-3"><i class="icon icon-arrow-right"></i></label>
-          <img class="img-responsive rounded" src="/static/pic2.jpg" alt="macOS Yosemite Wallpaper">
-        </figure>
-        <figure class="carousel-item">
-          <label class="item-prev btn btn-action btn-lg" for="slide-2"><i class="icon icon-arrow-left"></i></label>
-          <label class="item-next btn btn-action btn-lg" for="slide-4"><i class="icon icon-arrow-right"></i></label>
-          <img class="img-responsive rounded" src="/static/pic3.jpg" alt="macOS El Capitan Wallpaper">
-          
-        </figure>
-        <figure class="carousel-item">
-          <label class="item-prev btn btn-action btn-lg" for="slide-3"><i class="icon icon-arrow-left"></i></label>
-          <label class="item-next btn btn-action btn-lg" for="slide-1"><i class="icon icon-arrow-right"></i></label>
-          <img class="img-responsive rounded" src="static/pic4.jpg" alt="macOS El Capitan Wallpaper">
-        </figure>
+      <div style='font-size: large;'><b>Експертною системою:</b></div>
+
+      {% if match == False %}
+      <i>Не виявленно симтомів, які б значно заважади фізичній активності.</i><br><br>
+      {% else %}
+      <b>Знайдено деякі проблеми із здоров'ям. Рекомендовано отримати консультацію у лікаря. </b> <br><br>
+      {% endif %}
+
+    </div>
+
+    {% if health == "normal" %}
+    <div class="docs-demo columns">
+      <div class="column col-8 col-mx-auto">
+        <div class="card">
+          <div class="card-image">
+            <img src="/static/warm-up.gif" class="img-responsive">
+          </div>
+          <div class="card-header">
+            <div class="card-title h5">Загальні рекомендації</div>
+          </div>
+          <div class="card-body">
+            <ol>
+              <li>Перед проведенням вправ обов'язково необхідно “розігрітись”.</li>
+              <li>Під час виконання пульс не повинен перевищувати 120-140 ударів в хвилину.</li>
+              <li>В разі запаморочення, болю в області серця або нудоти, необхідно негайно припинити заняття.</li>
+            </ol>
+          </div>
+        </div>
       </div>
-      <div class="carousel-nav">
-        <label class="nav-item text-hide c-hand" for="slide-1">1</label>
-        <label class="nav-item text-hide c-hand" for="slide-2">2</label>
-        <label class="nav-item text-hide c-hand" for="slide-3">3</label>
-        <label class="nav-item text-hide c-hand" for="slide-4">4</label>
+
+    <h5 style="margin-top: 1em;">Враховуючи стан вашого здоров'я, рекомендуємо звичайний комплекс вправ:</h5>
+       
+    <div class="column col-6 col-xs-12" style="margin-top: 1em;">
+      <div class="card">
+        <div class="card-image">
+          <img src="/static/diaphragmatic-breathing.png" class="img-responsive">
+        </div>
+        <div class="card-header">
+          <div class="card-title h5">Діафрагмальне дихання</div>
+          <div class="card-subtitle text-gray">Загальні вправи, Вправи від стресу</div>
+        </div>
+        <div class="card-body">
+          Діафрагмальне дихання допомогає знизити рівень втоми, тривожність, покращує здатність організму переносити
+          інтенсивні фізичні вправи.
+          Необхідно:
+          <ol>
+            <li>Сісти в зручному положенні або лягти на підлогу, ліжко або іншу зручну рівну поверхню.</li>
+            <li>Покласти руку на груди і руку на живіт.</li>
+            <li>Вдихнути через ніс близько двох секунд. Необхідно відчути, як повітря просувається через ніздрі до
+              живота, змушуючи розширюватися живіт. Під час такого типу дихання переконайтесь, що ваш живіт рухається
+              назовні, а груди залишається відносно нерухомо.</li>
+            <li>Стисність губи, обережно натисніть на живіт і повільно видихайте близько двох секунд.</li>
+            <li>Виконувати 3-4 рази.</li>
+          </ol>
+         
+        </div>
+      </div>
+
+    </div>
+
+    <div class="column col-6 col-xs-12" style="margin-top: 1em;">
+
+      <div class="card">
+        <div class="card-image">
+          <img src="/static/coordinated_breathing.jpg" class="img-responsive">
+        </div>
+        <div class="card-header">
+          <div class="card-title h5">Контроль дихання</div>
+          <div class="card-subtitle text-gray">Координоване дихання</div>
+        </div>
+        <div class="card-body">
+          Координоване дихання можна виконувати, під час заняття фізичними вправами або якщо відчуваєте тривогу.
+
+          <ol>
+            <li>Вдихніть через ніс.</li>
+            <li>Дихайте через стиснуті губи. Якщо ви виконуєте фізичну вправу, дихайте під час найбільш напруженої
+              частини вправи.</li>
+
+          </ol>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="column col-6 col-xs-12" style="margin-top: 1em;">
+
+      <div class="card">
+        <div class="card-image">
+          <img src="/static/breath-out.jpg" class="img-responsive">
+        </div>
+        <div class="card-header">
+          <div class="card-title h5">Ребро-легеневе дихання</div>
+          <div class="card-subtitle text-gray">Контроль дихання</div>
+        </div>
+        <div class="card-body">
+          Необхідно:
+
+          <ol>
+            <li>Виконувати стоячи, спина має бути прямою.</li>
+            <li>Видихайте, поки не скінчиться повтря.</li>
+            <li>Вдихніть повільно і поступово, забираючи якомога більше повітря, поки ви вже не можете вдихнути.</li>
+            <li>Затримайте дихання близько 10 секунд.</li>
+            <li>Видихайте повільно через рот. Зробити це можна нормально або зі стиснутими губами.</li>
+            <li>Виконувати 3-4 рази.</li>
+
+          </ol>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="column col-6 col-xs-12" style="margin-top: 1em;">
+
+      <div class="card">
+        <div class="card-image">
+          <img src="/static/standing-back.png" class="img-responsive">
+        </div>
+        <div class="card-header">
+          <div class="card-title h5">Видихи</div>
+          <div class="card-subtitle text-gray">Загальна вправа</div>
+        </div>
+        <div class="card-body">
+          Необхідно зробити поспіль стільки вдихів, скільки в даний момент можна зробити без зусиль. В залежності від
+          стану здоров'я.
+          Враховуючи ваш стан організму:
+          <!-- - У важкому стані - по 2, 4, 8 вдихів, сидячи або лежачи; -->
+          <ol>
+            <li>Виконувати по 8, 16, 32 вдихі, стоячи. (модна використовувати стіну як опору)</li>
+            <li>Використовуючи м'язи живота, щоб випустити повітря за три рівних вдихи.</li>
+
+          </ol>
+        </div>
+      </div>
+
+    </div>
+    <div class="column col-6 col-xs-12" style="margin-top: 1em;">
+
+      <div class="card">
+        <div class="card-image">
+          <img src="/static/Huff.jpg" class="img-responsive">
+        </div>
+        <div class="card-header">
+          <div class="card-title h5">Вправа Хаффу</div>
+          <div class="card-subtitle text-gray">Контроль дихання</div>
+        </div>
+        <div class="card-body">
+          Вправа допомагає розвивати м'язи легенів.
+
+          <ol>
+            <li>Сядьте в зручному положеннні. Вдихніть через рот, трохи глибше ніж зазвичай.</li>
+            <li>Використовуючи м'язи живота, щоб випустити повітря за три рівних вдихи.</li>
+            <li>Виконувати 3-4 рази.</li>
+
+          </ol>
+        </div>
+      </div>
+
+    </div>
+
+    {% elif health == "easy" %}
+    <div class="docs-demo columns">
+      <div class="column col-8 col-mx-auto">
+        <div class="card">
+          <div class="card-image">
+            <img src="/static/warm-up.gif" class="img-responsive">
+          </div>
+          <div class="card-header">
+            <div class="card-title h5">Загальні рекомендації</div>
+          </div>
+          <div class="card-body">
+            <ol>
+              <li>Перед проведенням вправ обов'язково необхідно “розігрітись”.</li>
+              <li>Під час виконання пульс не повинен перевищувати 120-140 ударів в хвилину.</li>
+              <li>В разі запаморочення, болю в області серця або нудоти, необхідно негайно припинити заняття.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    <h5 style="margin-top: 1em;">Враховуючи стан вашого здоров'я, рекомендуємо полегшений комплекс вправ:</h5>
+    
+    <div class="column col-6 col-xs-12" style="margin-top: 1em;">
+      <div class="card">
+        <div class="card-image">
+          <img src="/static/stress-belly.png" class="img-responsive">
+        </div>
+        <div class="card-header">
+          <div class="card-title h5">Діафрагмальне дихання</div>
+          <div class="card-subtitle text-gray">Загальні вправи, Вправи від стресу</div>
+        </div>
+        <div class="card-body">
+          Діафрагмальне дихання допомогає знизити рівень втоми, тривожність, покращує здатність організму переносити
+          інтенсивні фізичні вправи.
+          Необхідно:
+          <ol>
+            <li>Сісти в зручному положенні або лягти на підлогу, ліжко або іншу зручну рівну поверхню.</li>
+            <li>Покласти руку на груди і руку на живіт.</li>
+            <li>Вдихнути через ніс близько двох секунд. Необхідно відчути, як повітря просувається через ніздрі до
+              живота, змушуючи розширюватися живіт. Під час такого типу дихання переконайтесь, що ваш живіт рухається
+              назовні, а груди залишається відносно нерухомо.</li>
+            <li>Стисність губи, обережно натисніть на живіт і повільно видихайте близько двох секунд.</li>
+            <li>Виконувати 1-2 рази.</li>
+          </ol>
+         
+        </div>
+      </div>
+
+    </div>
+
+    <div class="column col-6 col-xs-12" style="margin-top: 1em;">
+
+      <div class="card">
+        <div class="card-image">
+          <img src="/static/coordinated_breathing.jpg" class="img-responsive">
+        </div>
+        <div class="card-header">
+          <div class="card-title h5">Контроль дихання</div>
+          <div class="card-subtitle text-gray">Координоване дихання</div>
+        </div>
+        <div class="card-body">
+          Координоване дихання можна виконувати, під час заняття фізичними вправами або якщо відчуваєте тривогу.
+
+          <ol>
+            <li>Вдихніть через ніс.</li>
+            <li>Дихайте через стиснуті губи. Якщо ви виконуєте фізичну вправу, дихайте під час найбільш напруженої
+              частини вправи.</li>
+
+          </ol>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="column col-6 col-xs-12" style="margin-top: 1em;">
+
+      <div class="card">
+        <div class="card-image">
+          <img src="/static/Huff.jpg" class="img-responsive">
+        </div>
+        <div class="card-header">
+          <div class="card-title h5">Ребро-легеневе дихання</div>
+          <div class="card-subtitle text-gray">Контроль дихання</div>
+        </div>
+        <div class="card-body">
+          Необхідно:
+
+          <ol>
+            <li>Виконувати стоячи, спина має бути прямою.</li>
+            <li>Видихайте, поки не скінчиться повтря.</li>
+            <li>Вдихніть повільно і поступово, забираючи якомога більше повітря, поки ви вже не можете вдихнути.</li>
+            <li>Затримайте дихання близько 10 секунд.</li>
+            <li>Видихайте повільно через рот. Зробити це можна нормально або зі стиснутими губами.</li>
+            <li>Виконувати 1-2 рази.</li>
+
+          </ol>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="column col-6 col-xs-12" style="margin-top: 1em;">
+
+      <div class="card">
+        <div class="card-image">
+          <img src="/static/Huff.jpg" class="img-responsive">
+        </div>
+        <div class="card-header">
+          <div class="card-title h5">Видихи</div>
+          <div class="card-subtitle text-gray">Загальна вправа</div>
+        </div>
+        <div class="card-body">
+          Необхідно зробити поспіль стільки вдихів, скільки в даний момент можна зробити без зусиль. В залежності від
+          стану здоров'я.
+          Враховуючи ваш стан організму:
+          <ol>
+            <li>Виконувати по 2, 4, 8 вдихів, сидячи або лежачи.</li>
+            <li>Використовуючи м'язи живота, щоб випустити повітря за три рівних вдихи.</li>
+
+          </ol>
+        </div>
+      </div>
+
+    </div>
+    <div class="column col-6 col-xs-12" style="margin-top: 1em;">
+
+      <div class="card">
+        <div class="card-image">
+          <img src="/static/Huff.jpg" class="img-responsive">
+        </div>
+        <div class="card-header">
+          <div class="card-title h5">Вправа Хаффу</div>
+          <div class="card-subtitle text-gray">Контроль дихання</div>
+        </div>
+        <div class="card-body">
+          Вправа допомагає розвивати м'язи легенів.
+
+          <ol>
+            <li>Сядьте в зручному положеннні. Вдихніть через рот, трохи глибше ніж зазвичай.</li>
+            <li>Використовуючи м'язи живота, щоб випустити повітря за три рівних вдихи.</li>
+            <li>Виконувати 1-2 рази.</li>
+            
+          </ol>
+        </div>
       </div>
     </div>
 
+    <div class="column col-6 col-xs-12" style="margin-top: 1em;">
 
-</div>
-{% endblock %}
+      <div class="card">
+        <div class="card-image">
+          <img src="/static/Huff.jpg" class="img-responsive">
+        </div>
+        <div class="card-header">
+          <div class="card-title h5">Вправа Хаффу</div>
+          <div class="card-subtitle text-gray">Контроль дихання</div>
+        </div>
+        <div class="card-body">
+          Вправа допомагає розвивати м'язи легенів.
+
+          <ol>
+            <li>Сядьте в зручному положеннні. Вдихніть через рот, трохи глибше ніж зазвичай.</li>
+            <li>Використовуючи м'язи живота, щоб випустити повітря за три рівних вдихи.</li>
+
+          </ol>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    {% elif health == "no" %}
+    <h5 style="margin-top: 1em;">Вибачте, враховуючи стан вашого здоров'я, виконувати вправи заборонено! Рекомендуємо звернутись до лікаря.</h5>
+    {% endif %}
+
+    {% if 0 > output_values['emotional_value'] > 30 %}
+    <h5 style="margin-top: 1em;">Рекомендуємо також звернути увагу на психічне здоров'я та звернутись до відповідного спеціаліста.</h5>
+    {% endif %}      
+  
+    {% if health == "no" %}
+      {% if 30 > output_values['emotional_value'] > 70 %}
+    <div class="column col-6 col-xs-12" style="margin-top: 1em;">
+      <div class="card">
+        <div class="card-image">
+          <img src="/static/stress-4-7-8.png" class="img-responsive">
+        </div>
+        <div class="card-header">
+          <div class="card-title h5">4-7-8</div>
+          <div class="card-subtitle text-gray">Вправи від стресу</div>
+        </div>
+        <div class="card-body">
+          Цю вправу можна виконувати сидячи або лежачи.
+          <ol>
+            <li>Покладіть одну руку на живіт, іншу на груди.</li>
+            <li>Зробіть глибокий, повільний вдих з живота. Вдихаючи рахуйте про себе до 4.</li>
+            <li>Затримайте дихання і рахуйте про себе від 1 до 7.</li>
+            <li>Видихніть повністю, рахуючи від 1 до 8. Спробуйте випустити все повітря з легенів до моменту, коли ви
+              дорахуєте до 8.</li>
+            <li>Зверніть увагу на своє самопочуття в кінці вправи.</li>
+            <li>Повторіть 3 - 7 разів або поки не відчуєте спокій.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+      {% endif %}
+    {% endif %}
+    
+  </div>
+  </div>
+  {% endblock %}
