@@ -66,9 +66,9 @@ def check_general_param(temp, pulse, bp_systolic, bp_diastolic):
         return "normal"
 
 def recomendation(sf, bmi):
-    if ((70 <= sf < 100) and (18.5 <= bmi < 30)):
+    if ((60 <= sf < 100) and (18.5 <= bmi < 30)):
         return "normal"
-    elif ((40 <= sf < 70) or (30 <= bmi < 40)):
+    elif ((40 <= sf < 60) or (30 <= bmi < 40)):
         return "easy"
     else:
         return "no"
@@ -92,6 +92,14 @@ def rewrite_health_param(new_value, health):
     else:
         return new_value
 
+def expert(expert_input):
+    try:
+        if len(expert_input)>=3:
+            return True
+        else: 
+            return False
+    except TypeError:
+        return False
 
 def average(lst): 
     return sum(lst) / len(lst) 

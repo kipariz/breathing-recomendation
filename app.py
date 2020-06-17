@@ -71,6 +71,12 @@ def process_form():
         if request.form.get('air') != None:
             respiratory_diseases = request.form.getlist('air')
 
+    #expert
+    expert_input = None
+    if request.method == 'POST':
+        if request.form.get('expert') != None:
+            expert_input = request.form.getlist('expert')
+
     general_values = {
         'temp': float(request.form['temp']),
         'pulse': int(request.form['pulse']),
@@ -317,7 +323,9 @@ def process_form():
     engine.reset()
     engine.run()
 
-
+    
+    match = expert(expert_input)
+    print(f"match {match}")
     return render_template('results.html', output_values=output_values, match=match, health=health)
 
 
