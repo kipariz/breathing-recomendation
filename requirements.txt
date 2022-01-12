@@ -8,7 +8,7 @@ itsdangerous==1.1.0
 Jinja2==2.11.3
 joblib==0.13.2
 MarkupSafe==1.1.1
-pipenv==2018.11.26
+pipenv==2022.1.8
 schema==0.6.7
 virtualenv==16.6.1
 virtualenv-clone==0.5.3
